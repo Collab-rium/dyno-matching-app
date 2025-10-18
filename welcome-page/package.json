@@ -4,9 +4,7 @@
   "private": true,
   "main": "App.js",
   "dependencies": {
-    "expo": "^48.0.0",
-    "react": "18.2.0",
-    "react-native": "0.71.0",
-    "expo-linear-gradient": "^12.0.0"
+    "expo": "~54.0.0",
+    "expo-linear-gradient": "~12.1.3"
   }
 }
