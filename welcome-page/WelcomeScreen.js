@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import GradientBackground from "../GradientBackground";
+import GradientBackground from "./GradientBackground.expo";
 import styles from "./welcomeStyles";
 import AppLogo from "./AppLogo";
 import IconButton from "./IconButton";
