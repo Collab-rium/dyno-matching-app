@@ -7,7 +7,6 @@ import {
   Platform,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { Platform } from "react-native";
 
 /**
  * Date input component with native picker
