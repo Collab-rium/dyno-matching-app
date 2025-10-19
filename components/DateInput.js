@@ -7,6 +7,7 @@ import {
   Platform,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { Platform } from "react-native";
 
 /**
  * Date input component with native picker
@@ -46,6 +47,35 @@ export default function DateInput({
     return `${month}/${day}/${year}`;
   };
 
+  // Web fallback: use HTML input type='date'
+  if (Platform.OS === "web") {
+    return (
+      <View style={[styles.container, style]}>
+        {label ? <Text style={styles.label}>{label}</Text> : null}
+        <input
+          type="date"
+          style={{
+            backgroundColor: "#232526",
+            color: "#fff",
+            borderRadius: 12,
+            padding: 12,
+            border: "2px solid #414345",
+            fontSize: 18,
+            width: "100%",
+          }}
+          value={value ? value.toISOString().slice(0, 10) : ""}
+          min={minimumDate ? minimumDate.toISOString().slice(0, 10) : undefined}
+          max={maximumDate ? maximumDate.toISOString().slice(0, 10) : undefined}
+          onChange={(e) => {
+            const date = new Date(e.target.value);
+            if (!isNaN(date)) onChange(date);
+          }}
+        />
+      </View>
+    );
+  }
+
+  // Native mobile picker
   return (
     <View style={[styles.container, style]}>
       {label ? <Text style={styles.label}>{label}</Text> : null}
