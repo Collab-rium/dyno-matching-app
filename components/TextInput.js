@@ -1,5 +1,6 @@
 import React from "react";
 import { TextInput as RNTextInput, View, Text, StyleSheet } from "react-native";
+import { useTheme } from "../theme/ThemeContext";
 
 /**
  * Reusable text input component
@@ -31,20 +32,43 @@ export default function TextInput({
   numberOfLines = 1,
   ...rest
 }) {
+  const { colors, typography, spacing, radii } = useTheme();
+
   return (
-    <View style={[styles.container, style]}>
-      {label ? <Text style={styles.label}>{label}</Text> : null}
+    <View style={[styles.container, { marginBottom: spacing.md }, style]}>
+      {label ? (
+        <Text
+          style={[
+            styles.label,
+            {
+              ...typography.label,
+              color: colors.text,
+              marginBottom: spacing.sm,
+            },
+          ]}>
+          {label}
+        </Text>
+      ) : null}
       <RNTextInput
         style={[
           styles.input,
+          {
+            backgroundColor: colors.card,
+            borderRadius: radii.md,
+            paddingVertical: spacing.md,
+            paddingHorizontal: spacing.md,
+            fontSize: typography.body1.fontSize,
+            color: colors.text,
+            borderColor: colors.border,
+          },
           multiline && styles.multilineInput,
-          error && styles.inputError,
+          error && { borderColor: colors.error },
           inputStyle,
         ]}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="#666"
+        placeholderTextColor={colors.textSecondary}
         keyboardType={keyboardType}
         maxLength={maxLength}
         autoFocus={autoFocus}
@@ -52,7 +76,19 @@ export default function TextInput({
         numberOfLines={multiline ? numberOfLines : 1}
         {...rest}
       />
-      {error ? <Text style={styles.errorText}>{error}</Text> : null}
+      {error ? (
+        <Text
+          style={[
+            styles.errorText,
+            {
+              color: colors.error,
+              fontSize: typography.caption.fontSize,
+              marginTop: spacing.xs,
+            },
+          ]}>
+          {error}
+        </Text>
+      ) : null}
     </View>
   );
 }
@@ -60,34 +96,17 @@ export default function TextInput({
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginBottom: 16,
   },
   label: {
-    fontSize: 16,
     fontWeight: "600",
-    color: "#fff",
-    marginBottom: 8,
   },
   input: {
-    backgroundColor: "#232526",
-    borderRadius: 12,
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-    fontSize: 18,
-    color: "#fff",
     borderWidth: 2,
-    borderColor: "#414345",
   },
   multilineInput: {
     minHeight: 100,
     textAlignVertical: "top",
   },
-  inputError: {
-    borderColor: "#FF5858",
-  },
-  errorText: {
-    color: "#FF5858",
-    fontSize: 14,
-    marginTop: 4,
-  },
+  inputError: {},
+  errorText: {},
 });
