@@ -28,7 +28,7 @@ export default function SplashScreen({ onFinish }) {
     }, 2500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [fadeAnim, scaleAnim, onFinish]);
 
   return (
     <LinearGradient
