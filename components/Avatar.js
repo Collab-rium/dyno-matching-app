@@ -10,7 +10,8 @@ export default function Avatar({
   badge = null,
   style,
 }) {
-  const { colors, gradients, typography } = useTheme();
+  const { theme } = useTheme();
+  const { colors, gradients, typography } = theme;
 
   return (
     <View style={[styles.container, { width: size, height: size }, style]}>

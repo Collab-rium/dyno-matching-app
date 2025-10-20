@@ -4,7 +4,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "../theme/ThemeContext";
 
 export default function BottomNavigation({ currentScreen, onNavigate }) {
-  const { colors, gradients, typography, spacing, radii } = useTheme();
+  const { theme } = useTheme();
+  const { colors, gradients, typography, spacing, radii } = theme;
 
   const tabs = [
     { id: "home", icon: "🔥", label: "Discover" },

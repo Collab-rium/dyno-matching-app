@@ -69,7 +69,8 @@ export default function HomeScreen({
   onChat,
   onSettings,
 }) {
-  const { colors, gradients, typography, spacing, radii } = useTheme();
+  const { theme } = useTheme();
+  const { colors, gradients, typography, spacing, radii } = theme;
   const [profiles, setProfiles] = useState(mockProfiles);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMatchModal, setShowMatchModal] = useState(false);

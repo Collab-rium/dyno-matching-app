@@ -10,7 +10,8 @@ export default function PrimaryButton({
   style,
   type = "primary",
 }) {
-  const { gradients, typography, colors, radii, spacing } = useTheme();
+  const { theme } = useTheme();
+  const { gradients, typography, colors, radii, spacing } = theme;
   const gradient = gradients[type] || gradients.primary;
 
   return (

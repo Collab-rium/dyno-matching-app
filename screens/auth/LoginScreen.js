@@ -13,7 +13,8 @@ import { useTheme } from "../../theme/ThemeContext";
 import ThemedTextInput from "../../components/TextInput";
 
 export default function LoginScreen({ onLogin, onSignup }) {
-  const { gradients, typography, colors, spacing, radii } = useTheme();
+  const { theme } = useTheme();
+  const { gradients, typography, colors, spacing, radii } = theme;
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
 

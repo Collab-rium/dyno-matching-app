@@ -32,7 +32,8 @@ export default function TextInput({
   numberOfLines = 1,
   ...rest
 }) {
-  const { colors, typography, spacing, radii } = useTheme();
+  const { theme } = useTheme();
+  const { colors, typography, spacing, radii } = theme;
 
   return (
     <View style={[styles.container, { marginBottom: spacing.md }, style]}>

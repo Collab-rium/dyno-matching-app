@@ -21,7 +21,8 @@ export default function MatchModal({
   onSendMessage,
   matchData,
 }) {
-  const { colors, gradients, typography, radii, spacing } = useTheme();
+  const { theme } = useTheme();
+  const { colors, gradients, typography, radii, spacing } = theme;
   const scaleValue = useRef(new Animated.Value(0)).current;
   const fadeValue = useRef(new Animated.Value(0)).current;
 

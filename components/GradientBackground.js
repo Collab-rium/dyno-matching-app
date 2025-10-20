@@ -10,7 +10,8 @@ export default function GradientBackground({
   style,
   type = "primary",
 }) {
-  const { gradients } = useTheme();
+  const { theme } = useTheme();
+  const { gradients } = theme;
   const gradient = gradients[type] || gradients.primary;
 
   return (

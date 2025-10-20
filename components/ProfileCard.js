@@ -4,7 +4,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "../theme/ThemeContext";
 
 export default function ProfileCard({ profile, onPress, style }) {
-  const { colors, typography, spacing, radii } = useTheme();
+  const { theme } = useTheme();
+  const { colors, typography, spacing, radii } = theme;
 
   if (!profile) return null;
 

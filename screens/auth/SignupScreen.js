@@ -14,7 +14,8 @@ import { useTheme } from "../../theme/ThemeContext";
 import ThemedTextInput from "../../components/TextInput";
 
 export default function SignupScreen({ onSignup, onLogin }) {
-  const { gradients, typography, colors, spacing, radii } = useTheme();
+  const { theme } = useTheme();
+  const { gradients, typography, colors, spacing, radii } = theme;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
