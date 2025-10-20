@@ -1,12 +1,40 @@
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
-import styles from "./welcomeStyles";
+import { TouchableOpacity, StyleSheet } from "react-native";
+import { useTheme } from "../theme/ThemeContext";
 
-// Generic icon button. Use children to pass icon/text.
-export default function IconButton({ onPress, children, style }) {
+// Generic icon button.
+export default function IconButton({
+  onPress,
+  children,
+  style,
+  size = 48,
+  backgroundColor,
+}) {
+  const { colors, radii } = useTheme();
+
+  const buttonStyles = {
+    width: size,
+    height: size,
+    borderRadius: radii.full,
+    backgroundColor: backgroundColor || colors.background,
+  };
+
   return (
-    <TouchableOpacity style={[styles.closeButton, style]} onPress={onPress}>
-      <Text style={styles.closeText}>{children}</Text>
+    <TouchableOpacity
+      style={[styles.button, buttonStyles, style]}
+      onPress={onPress}>
+      {children}
     </TouchableOpacity>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+  },
+});
