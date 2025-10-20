@@ -28,10 +28,26 @@ export const baseColors = {
 };
 
 export const gradients = {
-  primary: [baseColors.primaryRed, baseColors.primaryOrange],
-  hero: ["#FF512F", "#DD2476"],
-  soft: ["rgba(255,0,8,0.12)", "rgba(247,117,2,0.08)"],
-  darkGlass: ["rgba(15,23,42,0.92)", "rgba(15,23,42,0.75)"],
+  primary: {
+    colors: [baseColors.primaryRed, baseColors.primaryOrange],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  },
+  hero: {
+    colors: ["#FF512F", "#DD2476"],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  },
+  soft: {
+    colors: ["rgba(255,0,8,0.12)", "rgba(247,117,2,0.08)"],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  },
+  darkGlass: {
+    colors: ["rgba(15,23,42,0.92)", "rgba(15,23,42,0.75)"],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  },
 };
 
 export const fonts = {
