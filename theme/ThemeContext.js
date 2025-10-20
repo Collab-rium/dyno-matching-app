@@ -1,4 +1,10 @@
-import React, { createContext, useState, useContext, useMemo, useCallback } from "react";
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useMemo,
+  useCallback,
+} from "react";
 import { useColorScheme } from "react-native";
 import { lightTheme, darkTheme } from "./index";
 
@@ -12,15 +18,15 @@ export const ThemeProvider = ({ children }) => {
     setIsDarkMode((prev) => !prev);
   }, []);
 
-  const theme = isDarkMode ? darkTheme : lightTheme;
+  const currentTheme = isDarkMode ? darkTheme : lightTheme;
 
   const themeValue = useMemo(
     () => ({
-      ...theme,
+      theme: currentTheme,
       toggleTheme,
       isDarkMode,
     }),
-    [isDarkMode, theme, toggleTheme]
+    [isDarkMode, currentTheme, toggleTheme]
   );
 
   return (
