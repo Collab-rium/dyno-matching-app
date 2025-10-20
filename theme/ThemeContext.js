@@ -20,7 +20,7 @@ export const ThemeProvider = ({ children }) => {
       toggleTheme,
       isDarkMode,
     }),
-    [isDarkMode, theme]
+    [isDarkMode, theme, toggleTheme]
   );
 
   return (
