@@ -38,7 +38,7 @@ export default function SuccessModal({
     } else {
       scaleValue.setValue(0);
     }
-  }, [visible]);
+  }, [visible, scaleValue]);
 
   return (
     <Modal
