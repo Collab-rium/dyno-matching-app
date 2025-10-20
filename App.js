@@ -19,7 +19,7 @@ const AppContent = () => {
   const [currentScreen, setCurrentScreen] = useState("splash");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [previousScreen, setPreviousScreen] = useState(null);
-  const { theme } = useTheme();
+  const { theme, isDarkMode } = useTheme();
 
   // Splash screen timer
   React.useEffect(() => {
@@ -73,9 +73,7 @@ const AppContent = () => {
     case "splash":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <SplashScreen />
         </AppContainer>
       );
@@ -83,9 +81,7 @@ const AppContent = () => {
     case "onboarding":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <OnboardingScreen onGetStarted={() => navigateTo("login")} />
         </AppContainer>
       );
@@ -93,9 +89,7 @@ const AppContent = () => {
     case "login":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <LoginScreen
             onLogin={handleLogin}
             onSignup={() => navigateTo("signup")}
@@ -106,9 +100,7 @@ const AppContent = () => {
     case "signup":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <SignupScreen
             onSignup={handleSignup}
             onLogin={() => navigateTo("login")}
@@ -119,9 +111,7 @@ const AppContent = () => {
     case "home":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <View style={{ flex: 1 }}>
             <HomeScreen
               onProfile={() => navigateTo("profile")}
@@ -142,9 +132,7 @@ const AppContent = () => {
     case "profile":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <View style={{ flex: 1 }}>
             <ProfileScreen
               onBack={() => navigateTo("home")}
@@ -164,9 +152,7 @@ const AppContent = () => {
     case "chatList":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <View style={{ flex: 1 }}>
             <ChatListScreen
               onBack={() => navigateTo("home")}
@@ -185,9 +171,7 @@ const AppContent = () => {
     case "chat":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <ChatScreen onBack={() => navigateTo("chatList")} />
         </AppContainer>
       );
@@ -195,9 +179,7 @@ const AppContent = () => {
     case "matches":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <View style={{ flex: 1 }}>
             <MatchesScreen
               onBack={() => navigateTo("home")}
@@ -216,9 +198,7 @@ const AppContent = () => {
     case "editProfile":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <EditProfileScreen
             onBack={goBack}
             onSave={(data) => {
@@ -232,9 +212,7 @@ const AppContent = () => {
     case "filters":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <FiltersScreen
             onBack={goBack}
             onApply={(filters) => {
@@ -248,9 +226,7 @@ const AppContent = () => {
     case "settings":
       return (
         <AppContainer>
-          <StatusBar
-            barStyle={theme.mode === "dark" ? "light-content" : "dark-content"}
-          />
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
           <SettingsScreen
             onLogout={handleLogout}
             onBack={() => navigateTo("home")}
