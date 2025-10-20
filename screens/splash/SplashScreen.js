@@ -4,7 +4,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "../../theme/ThemeContext";
 
 export default function SplashScreen({ onFinish }) {
-  const { gradients, typography, colors } = useTheme();
+  const { theme } = useTheme();
+  const { gradients, typography, colors } = theme;
   const fadeAnim = React.useRef(new Animated.Value(0)).current;
   const scaleAnim = React.useRef(new Animated.Value(0.3)).current;
 

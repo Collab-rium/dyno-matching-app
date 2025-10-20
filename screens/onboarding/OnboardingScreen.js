@@ -26,7 +26,8 @@ const onboardingData = [
 ];
 
 export default function OnboardingScreen({ onGetStarted }) {
-  const { gradients, typography, colors, spacing, radii } = useTheme();
+  const { theme } = useTheme();
+  const { gradients, typography, colors, spacing, radii } = theme;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {

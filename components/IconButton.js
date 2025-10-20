@@ -10,7 +10,8 @@ export default function IconButton({
   size = 48,
   backgroundColor,
 }) {
-  const { colors, radii } = useTheme();
+  const { theme } = useTheme();
+  const { colors, radii } = theme;
 
   const buttonStyles = {
     width: size,
